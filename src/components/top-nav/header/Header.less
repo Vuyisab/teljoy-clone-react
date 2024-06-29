@@ -1,0 +1,71 @@
+// src/Header.less
+@header-background-color: #333;
+@header-text-color: white;
+@link-hover-color: #ddd;
+@padding: 1rem 2rem;
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: @header-background-color;
+    color: @header-text-color;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: @padding;
+
+    .nav-search {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+    
+            input {
+                width: 30%;
+                padding: 0.5rem;
+                font-size: 1rem;
+                border: none;
+                border-radius: 20px;
+                background-color: @header-background-color;
+                border: 2px solid @header-text-color;
+                
+                &::placeholder {
+                        color: @header-text-color;
+                        font-style: italic;
+                    }
+
+                
+            }
+            
+        }
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: @header-text-color;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: @link-hover-color;
+}
