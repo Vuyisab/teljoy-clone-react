@@ -2,14 +2,7 @@ import MenuDropdown from '../../common/menu-dropdown/MenuDropdown';
 import './Header.less';
 
 const Header = () => {
-  const shopItems = [
-    'Televisions & Entertainment',
-    'Home & Kitchen Appliances',
-    'Electronics',
-    'Beds & Furniture',
-    'Fitness & Beauty',
-    'Outdoors',
-  ];
+  const shopItems = ['Televisions & Entertainment', 'Home & Kitchen Appliances', 'Electronics', 'Beds & Furniture', 'Fitness & Beauty', 'Outdoors'];
 
   const profileItems = ['Wishlist', 'Login/Register'];
 
