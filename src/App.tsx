@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Category } from './components/data/types/category';
 import Header from './components/top-nav/header/Header';
 import supabase from './supabaseClient';
+import CarouselComponent from './components/main-page/carousel/CarouselComponent';
 
 function App() {
   const [categories, setCategories] = useState<Array<Category>>([]);
@@ -21,11 +24,9 @@ function App() {
     <>
       <Header />
       <h1>These are our categories</h1>
-      <ul>
-        {categories.map(category => (
-          <li key={category.id}>{category.name}</li>
-        ))}
-      </ul>
+      <main className="center">
+        <CarouselComponent />
+      </main>
     </>
   );
 }
