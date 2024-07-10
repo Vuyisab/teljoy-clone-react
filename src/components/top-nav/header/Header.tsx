@@ -1,4 +1,4 @@
-import MenuDropdown from '../../common/menu-dropdown/MenuDropdown';
+import { Button, Container, Form, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import './Header.less';
 
 const Header = () => {
@@ -7,32 +7,34 @@ const Header = () => {
   const profileItems = ['Wishlist', 'Login/Register'];
 
   return (
-    <header className="header">
-      <nav className="nav">
-        <ul className="nav-links">
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#shop">
-              <MenuDropdown title={'Shop'} items={shopItems} />
-            </a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#contact">
-              <MenuDropdown title={'My Profile'} items={profileItems} />
-            </a>
-          </li>
-        </ul>
-        <div className="nav-search">
-          <input type="text" placeholder="Search..." />
-        </div>
-        <div className="nav-logo">BazaJoy</div>
-      </nav>
-    </header>
+    <div>
+      <Navbar expand="lg" className="bg-body-tertiary header" data-bs-theme="dark" fixed="top">
+        <Container>
+          <Navbar.Brand href="#home">Bazajoy</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <NavDropdown title="Shop" id="basic-nav-dropdown">
+                {shopItems.map(shopItem => (
+                  <NavDropdown.Item href="#action/3.1">{shopItem}</NavDropdown.Item>
+                ))}
+              </NavDropdown>
+              <Nav.Link href="#link">About</Nav.Link>
+              <NavDropdown title="Profile" id="basic-nav-dropdown">
+                {profileItems.map(profileItem => (
+                  <NavDropdown.Item href="#action/3.2">{profileItem}</NavDropdown.Item>
+                ))}
+              </NavDropdown>
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
+              <Button variant="dark">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 
