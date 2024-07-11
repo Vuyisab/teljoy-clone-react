@@ -8,8 +8,8 @@ const CarouselComponent = () => {
   return (
     <Carousel className="carousel">
       {products.map(product => (
-        <Carousel.Item>
-          <img className="w-100 carousel-image" src={product.imageurl} alt={product.name} />
+        <Carousel.Item key={product.id}>
+          <img className="w-100 carousel-image" src={product.imageurl ?? ''} alt={product.name} />
           <div className="carousel-overlay"></div>
           <Carousel.Caption>
             <h3>{product.name}</h3>
