@@ -1,11 +1,11 @@
-import { Category } from './category';
-
 export type Product = {
+  Brand: string | null;
+  category_id: number | null;
+  created_at: string | null;
+  description: string | null;
+  id: number;
+  imageurl: string | null;
   name: string;
-  description: string;
   price: number;
-  category: Category;
-  imageurl: string;
-  subcategory: string;
-  brand: string;
+  subcategory: string | null;
 };

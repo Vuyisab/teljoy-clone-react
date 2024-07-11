@@ -1,9 +1,10 @@
 import { Carousel } from 'react-bootstrap';
 import './Carausel.less';
-import { useGetProducts } from '../../data/services/products/products';
+import { useLoaderData } from 'react-router-dom';
+import { Product } from '../../data/types/product';
 
 const CarouselComponent = () => {
-  const products = useGetProducts();
+  const products = useLoaderData() as Product[];
   return (
     <Carousel className="carousel">
       {products.map(product => (
