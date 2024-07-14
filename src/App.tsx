@@ -1,5 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 import Header from './components/top-nav/header/Header';
 import { Outlet } from 'react-router-dom';

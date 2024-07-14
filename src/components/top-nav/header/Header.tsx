@@ -1,5 +1,5 @@
-import { Button, Container, Form, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import './Header.less';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   const shopItems = ['Televisions & Entertainment', 'Home & Kitchen Appliances', 'Electronics', 'Beds & Furniture', 'Fitness & Beauty', 'Outdoors'];
@@ -7,34 +7,49 @@ const Header = () => {
   const profileItems = ['Wishlist', 'Login/Register'];
 
   return (
-    <div className="before-nav">
-      <Navbar expand="lg" className="bg-body-tertiary header" data-bs-theme="dark" fixed="top">
-        <Container>
-          <Navbar.Brand href="#home">Bazajoy</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <NavDropdown title="Shop" id="basic-nav-dropdown">
-                {shopItems.map(shopItem => (
-                  <NavDropdown.Item href="#action/3.1">{shopItem}</NavDropdown.Item>
-                ))}
-              </NavDropdown>
-              <Nav.Link href="#link">About</Nav.Link>
-              <NavDropdown title="Profile" id="basic-nav-dropdown">
-                {profileItems.map(profileItem => (
-                  <NavDropdown.Item href="#action/3.2">{profileItem}</NavDropdown.Item>
-                ))}
-              </NavDropdown>
-            </Nav>
-            <Form className="d-flex">
-              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-              <Button variant="dark">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary header"  data-bs-theme="dark">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="">BazaJoy &copy;</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link active" aria-current="page" to="">Home</NavLink>
+            </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Shop
+              </a>
+              <ul className="dropdown-menu">
+                {
+                  shopItems.map(item => (
+                    <li><NavLink className="dropdown-item" to={item.replace(' ', '')}>{item}</NavLink></li>
+                  ))
+                }
+              </ul>
+            </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profile
+              </a>
+              <ul className="dropdown-menu">
+                {
+                  profileItems.map(item => (
+                    <li><NavLink className="dropdown-item" to={item.replace(' ', '')}>{item}</NavLink></li>
+                  ))
+                }
+              </ul>
+            </li>
+          </ul>
+          <form className="d-flex" role="search">
+            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button className="btn btn-dark btn-outline-secondary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
   );
 };
 
