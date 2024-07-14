@@ -16,12 +16,12 @@ const router = createBrowserRouter([
 
     children: [
       {
-        path: '',
+        index: true,
         element: (
           <>
-            <main className="center">
+            <article className="center">
               <CarouselComponent />
-            </main>
+            </article>
             <section>
               <h1>How it works</h1>
               <HowToComponent />

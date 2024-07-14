@@ -7,7 +7,7 @@ const Header = () => {
   const profileItems = ['Wishlist', 'Login/Register'];
 
   return (
-    <div>
+    <div className="before-nav">
       <Navbar expand="lg" className="bg-body-tertiary header" data-bs-theme="dark" fixed="top">
         <Container>
           <Navbar.Brand href="#home">Bazajoy</Navbar.Brand>

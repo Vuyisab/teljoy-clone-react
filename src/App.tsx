@@ -8,7 +8,9 @@ function App() {
   return (
     <div style={{ scrollBehavior: 'auto' }}>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <footer>
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
           <div className="container-fluid">
