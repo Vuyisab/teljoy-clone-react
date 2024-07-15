@@ -1,4 +1,4 @@
-import './HowToCompare.less';
+import './HowToCompare.scss';
 
 const HowToComponent = () => {
   return (

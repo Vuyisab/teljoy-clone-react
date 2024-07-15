@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './MenuDropdown.less';
+import './MenuDropdown.scss';
 
 interface MenuDropdownProps {
   title: string;

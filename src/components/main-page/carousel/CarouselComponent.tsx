@@ -1,5 +1,5 @@
 import { Carousel } from 'react-bootstrap';
-import './Carausel.less';
+import './Carausel.scss';
 import { useLoaderData } from 'react-router-dom';
 import { Product } from '../../data/types/product';
 

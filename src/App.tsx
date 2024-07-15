@@ -1,5 +1,4 @@
-
-import './App.css';
+import './App.scss';
 import Header from './components/top-nav/header/Header';
 import { Outlet } from 'react-router-dom';
 
@@ -7,7 +6,7 @@ function App() {
   return (
     <div style={{ scrollBehavior: 'auto' }}>
       <Header />
-      <main>
+      <main className="topg">
         <Outlet />
       </main>
       <footer>
