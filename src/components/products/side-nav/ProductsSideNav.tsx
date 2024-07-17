@@ -1,8 +1,13 @@
 import './ProductsSideNav.scss';
 
-const ProductsSideNav = () => {
+interface ProductsSideNavProps {
+  brands: string[];
+  category: string;
+}
+
+const ProductsSideNav = ({ brands, category }: ProductsSideNavProps) => {
   return (
-    <div className="accordion side" id="accordionPanelsStayOpenExample">
+    <div className="accordion" id="accordionPanelsStayOpenExample">
       <div className="accordion-item">
         <h2 className="accordion-header">
           <button
@@ -13,15 +18,18 @@ const ProductsSideNav = () => {
             aria-expanded="true"
             aria-controls="panelsStayOpen-collapseOne"
           >
-            Accordion Item #1
+            Category
           </button>
         </h2>
         <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show">
-          <div className="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
-            You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <div className="accordion-body d-flex p-10 align-items-baseline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+            <p>{category}</p>
           </div>
         </div>
       </div>
@@ -35,15 +43,13 @@ const ProductsSideNav = () => {
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseTwo"
           >
-            Accordion Item #2
+            Prices
           </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse">
           <div className="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
-            You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <p>Prices</p>
+            <input type="range" className="form-range" id="customRange1" />
           </div>
         </div>
       </div>
@@ -57,15 +63,29 @@ const ProductsSideNav = () => {
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseThree"
           >
-            Accordion Item #3
+            Brands
           </button>
         </h2>
         <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse">
-          <div className="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
-            You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <div className="accordion-body p-10 align-items-baseline">
+            {brands.map(brand => (
+              <div className="d-flex p-10 align-items-baseline">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  fill="currentColor"
+                  className="bi bi-chevron-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+                <p>{brand}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

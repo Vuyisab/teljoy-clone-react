@@ -1,8 +1,20 @@
 import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
 
+type Headerlink = {
+  url: string;
+  categoryId: number;
+};
+
 const Header = () => {
-  const shopItems = ['Televisions & Entertainment', 'Home & Kitchen Appliances', 'Electronics', 'Beds & Furniture', 'Fitness & Beauty', 'Outdoors'];
+  const shopItems: Array<Headerlink> = [
+    { url: 'Television & Entertainment', categoryId: 4 },
+    { url: 'Home & Kitchen Appliances', categoryId: 5 },
+    { url: 'Electronics', categoryId: 1 },
+    { url: 'Beds & Furniture', categoryId: 5 },
+    { url: 'Fitness & Beauty', categoryId: 6 },
+    { url: 'Outdoors', categoryId: 7 },
+  ];
 
   const profileItems = ['Wishlist', 'Login/Register'];
 
@@ -35,10 +47,10 @@ const Header = () => {
                 Shop
               </a>
               <ul className="dropdown-menu">
-                {shopItems.map(item => (
-                  <li>
-                    <NavLink className="dropdown-item" to={`products/${item}`}>
-                      {item}
+                {shopItems.map((item, index) => (
+                  <li key={index}>
+                    <NavLink className="dropdown-item" to={`products/${item.categoryId}`}>
+                      {item.url}
                     </NavLink>
                   </li>
                 ))}
@@ -49,8 +61,8 @@ const Header = () => {
                 Profile
               </a>
               <ul className="dropdown-menu">
-                {profileItems.map(item => (
-                  <li>
+                {profileItems.map((item, index) => (
+                  <li key={index}>
                     <NavLink className="dropdown-item" to={item.replace(' ', '')}>
                       {item}
                     </NavLink>

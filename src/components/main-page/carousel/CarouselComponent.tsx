@@ -2,9 +2,17 @@ import { Carousel } from 'react-bootstrap';
 import './Carausel.scss';
 import { useLoaderData } from 'react-router-dom';
 import { Product } from '../../data/types/product';
+import { useContext, useEffect } from 'react';
+import { AppContext } from '../../../types/app-context.ts';
+import { ApplicationContext } from '../../../Provider.tsx';
 
 const CarouselComponent = () => {
   const products = useLoaderData() as Product[];
+  const { setProducts } = useContext<AppContext>(ApplicationContext);
+
+  useEffect(() => {
+    setProducts && setProducts(products);
+  }, []);
   return (
     <Carousel className="carousel">
       {products.map(product => (

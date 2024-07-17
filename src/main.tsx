@@ -10,6 +10,8 @@ import { productsLoader } from './components/data/services/products/products.ts'
 import CarouselComponent from './components/main-page/carousel/CarouselComponent.tsx';
 import HowToComponent from './components/main-page/how-to-cards/HowToComponent.tsx';
 import { Products } from './components/products/Products.tsx';
+import { AppProvider } from './Provider.tsx';
+import { categoriesLoader } from './components/data/services/categories/categories.ts';
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,9 @@ const router = createBrowserRouter([
         loader: productsLoader,
       },
       {
-        path: 'products/:category',
+        path: 'products/:categoryId',
         element: <Products />,
+        loader: categoriesLoader,
       },
     ],
   },
@@ -43,6 +46,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>
 );
