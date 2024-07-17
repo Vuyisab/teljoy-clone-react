@@ -1,0 +1,34 @@
+.range-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.range-input {
+  position: relative;
+  width: 100%;
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0;
+  width: 100%;
+  outline: none;
+}
+
+.thumb-left {
+  pointer-events: all;
+}
+
+.thumb-right {
+  pointer-events: all;
+}
+
+.range-values {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

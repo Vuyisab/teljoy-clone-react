@@ -1,11 +1,14 @@
 import './ProductsSideNav.scss';
+import { Filter } from '../../data/types/filter.ts';
 
 interface ProductsSideNavProps {
   brands: string[];
   category: string;
+  setFilter: (productFilter: Filter) => void;
+  currentFilter: Filter;
 }
 
-const ProductsSideNav = ({ brands, category }: ProductsSideNavProps) => {
+const ProductsSideNav = ({ brands, category, setFilter, currentFilter }: ProductsSideNavProps) => {
   return (
     <div className="accordion" id="accordionPanelsStayOpenExample">
       <div className="accordion-item">
@@ -29,7 +32,7 @@ const ProductsSideNav = ({ brands, category }: ProductsSideNavProps) => {
                 d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
               />
             </svg>
-            <p>{category}</p>
+            <p onClick={() => setFilter({ ...currentFilter, category: category })}>{category}</p>
           </div>
         </div>
       </div>
@@ -51,6 +54,7 @@ const ProductsSideNav = ({ brands, category }: ProductsSideNavProps) => {
             <p>Prices</p>
             <input type="range" className="form-range" id="customRange1" />
           </div>
+          {/*<RangeInput min={0} max={100} />*/}
         </div>
       </div>
       <div className="accordion-item">
@@ -83,7 +87,7 @@ const ProductsSideNav = ({ brands, category }: ProductsSideNavProps) => {
                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
                   />
                 </svg>
-                <p>{brand}</p>
+                <p onClick={() => setFilter({ ...currentFilter, brand: brand })}>{brand}</p>
               </div>
             ))}
           </div>
