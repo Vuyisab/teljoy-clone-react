@@ -1,0 +1,15 @@
+$header-text-color: white;
+
+.header {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: $header-text-color !important;
+    z-index: 1000;
+    height: 5rem;
+}
+
+
+

@@ -1,21 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.scss';
 import Header from './components/top-nav/header/Header';
-import CarouselComponent from './components/main-page/carousel/CarouselComponent';
-import HowToComponent from './components/main-page/how-to-cards/HowToComponent';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div style={{ scrollBehavior: 'auto' }}>
       <Header />
-      <main className="center">
-        <CarouselComponent />
+      <main className="topg">
+        <Outlet />
       </main>
-      <section>
-        <h1>How it works</h1>
-        <HowToComponent />
-      </section>
       <footer>
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
           <div className="container-fluid">

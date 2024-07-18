@@ -1,4 +1,4 @@
-/* CSS Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -33,3 +33,11 @@ textarea,
 select {
   font: inherit;
 }
+
+$accordion-bg:white;
+$accordion-button-bg: white;
+$accordion-button-active-bg: white;
+$accordion-button-border-color: white;
+$accordion-icon-active-color:black;
+
+@import "/node_modules/bootstrap/scss/bootstrap";
