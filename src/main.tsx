@@ -6,12 +6,13 @@ import App from './App.tsx';
 import './index.scss';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorComponent from './ErrorComponent.tsx';
-import { productsLoader } from './components/data/services/products/products.ts';
+import { productLoader, productsLoader } from './components/data/services/products/products.ts';
 import CarouselComponent from './components/main-page/carousel/CarouselComponent.tsx';
 import HowToComponent from './components/main-page/how-to-cards/HowToComponent.tsx';
 import { Products } from './components/products/Products.tsx';
 import { AppProvider } from './Provider.tsx';
 import { categoriesLoader } from './components/data/services/categories/categories.ts';
+import { ProductComponent } from './components/product/Product.tsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
           </>
         ),
         loader: productsLoader,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductComponent />,
+        loader: productLoader,
       },
       {
         path: 'products/:categoryId',

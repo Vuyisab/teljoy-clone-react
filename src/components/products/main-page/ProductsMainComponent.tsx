@@ -10,7 +10,14 @@ export const ProductsMainComponent = ({ products }: ProductsMainComponentProps) 
   return (
     <div className="d-flex flex-wrap side-products m-5 ">
       {products.map((product: Product) => (
-        <ProductCard imageUrl={product.imageurl ?? ' '} name={product.name} brand={product.Brand ?? ''} price={product.price} key={product.id} />
+        <ProductCard
+          imageUrl={product.imageurl ?? ' '}
+          name={product.name}
+          brand={product.Brand ?? ''}
+          price={product.price}
+          key={product.id}
+          id={product.id}
+        />
       ))}
     </div>
   );
